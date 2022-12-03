@@ -1,0 +1,19 @@
+baseurl = "https://shubchat.github.io"
+title = "algoxlab"
+theme = "ghostwriter"
+
+[Params]
+    mainSections = ["post"]
+    intro = true
+    headline = "Algoxlab"
+    description = "Musings about Science, Engineering and Life"
+    github = "https://github.com/shubchat"
+    twitter = "https://twitter.com/shub777"
+    email = "shubh@algoxlab.com"
+    opengraph = true
+    shareTwitter = true
+    canonifyURLs = true 
+    dateFormat = "Mon, Jan 2, 2006"
+
+[Permalinks]
+    post = "/:filename/"
