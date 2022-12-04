@@ -12,9 +12,8 @@ author = "Shubh Chatterjee"
 
 ## Introduction
 
-In the data science world while we spend a huge amount of our focus and energy on developing state of the art prediction algorithm while trying to optimize some statistical metric not much thought goes into identifying which is a proper metric to be used for a specific problem .
-
-Choosing a metric is like deciding on what really matters for this problem in the current scenario .If you go wrong on this choice you will be optimizing towards a wrong solution .
+In the world of data science we spend a huge amount of our focus and energy on developing state of the art prediction algorithm. These highly sophisticated algorithms are tuned to enhance some statistical metric which we might reckon might be relevant for the problem. In essence the mathematical metric is what decides what we are measuring and how we reckon the perfect solution for our problem might look like. 
+Choosing a metric is like deciding on what really matters for this problem in the current scenario . Choosing a wrong metric is like wasting your valuable focus and energy in search of a solution which will lead to no real world gains
 
 ![Metrics](/images/AUC_vs_PR/img/workflow_ML_using_metrics.png 'ML metrics')
 
@@ -31,7 +30,7 @@ In this blog we will be focusing on classification problems and will be covering
 
 ## What are some different types of classification problems which might warrant different optimisation metrics?
 
-Any problem where you would want to classify an entity or event into different buckets/categories using data points about them is a classification problem.few of the examples of questions which fall in a ML classification problem:
+Any problem where you might want to classify an entity or event into different buckets/categories using data points about them is a classification problem. Examples:
 - Will an applicant for loan default or not if we offer loan ?
 - Should I be targeting this existing user for another product from our product catalogue?
 - Are there any medical abnormalities in this FMRI scan?
@@ -40,7 +39,7 @@ Any problem where you would want to classify an entity or event into different b
 - What type of humpback whale is in this image?
 
 Now although all of the problems above are classification problems at their core,they can be categorised as per different traits that we might observe .One of the those is what is the ratio of different classes within the problem .for example :
-- In a problem where we might be attempting the credit quality of an applicant while applying for a loan ,the defaulter ratio might be lets say<b> 20% </b>
+- In a problem where we might be attempting to predict the credit quality of an applicant while applying for a loan ,the defaulter ratio might be lets say<b> 20% </b>
 - A medical imaging problem where we might be attempting to identify cancerous cells in an image .The event rate found in the population might just be <b>0.5%</b>
 
 Both are classification problems but while one of the cases has 20% event rate while other has a much lower 0.5% event rate .Now this is not a data capture  specific trait but rather population heuristic rates or the base rates that we are mentioning here. This changes tons of stuff on how we might change our workflow depending upon whether we are dealing with an imbalanced class based problem or not .Some of the changes we might have to make are:
@@ -49,7 +48,7 @@ Both are classification problems but while one of the cases has 20% event rate w
 - Methodology used for model development
 - <b>Which metrics should we be using to evaluate our classification models</b>
 
-We in this text will focus on the third point mentioned above ,now although we would like to believe that goodness of fit metrics for evaluating our decision models can be universal ,this is far from the truth. This might impact the applied usage of the models in production as we might pick up sub-optimized models due to us optimizing towards a substandard  metric for the use case that we are working with. Below is an example use case which will clarify this for you where we are using accuracy as a metric across two problems with different base event rates.
+We in this text will focus on the third point mentioned above ,now although we would like to believe that goodness of fit metrics for evaluating our decision models can be universal ,this is far from the truth. Our choice might impact the applied usage of the models in production as we might pick up sub-optimized model by optimizing towards a substandard  metric for the use case that we are working with. Below is an example use case which will clarify this for you where we are using accuracy as a metric across two problems with different base event rates.
 
 Accuracy : Out of all data points that we have in the existing evaluation set in what percentage of cases our model classification was correct .For example if out of 100 data points if our model was able to correctly classify 90 data points the accuracy is 90% 
 
@@ -82,10 +81,24 @@ Sample  | predicted to have disease|Actually had disease|Accuracy|TP|FP|Precisio
 - FPR(False positive rate) : Out of all positive predictions how many are actually negative(in this case 15/(20)=75%)
 - Precision :How precise are our predictions out of all cases where we predict a positive how many are actually positive (5/20=25%)
 - Recall : Out of all positives ,how many are we able to capture?(5/5=100%)
-
-<b>Coming up soon..</b> 
+- log_loss : Logarthmic loss(indicates how close the prediction probability is to the true value)
+- Mean average precesion at K: How precise is our algorithm if we only pick the top K predictions for all cases
+- Top k accuracy : How accurate are we if we pick the first K predictions
+- Calibration chart
+- Any many more....
 
 ## What are some thumbrules around which metrics to use for which kind of problem?
+
+We now do realize that when attempting to solve a classification problem we have a gamut of metrics that we can optimise but that does not mean that each metric is relevant for each and every use case. Depending upon various aspects of a problem we might want one or more metric to judge a specific aspect of problem solving. Some of the different aspects of a problem we might consider:<br> 
+
+- The base event rate of the problem(Are we dealing with an imbalanced class problem? )
+- Cost of a false positive vs a false negative(What will be more impactful in the grand scheme of things?)
+- Do we care only about the rank-order(if the model is able to identify one class from another ) or do we also care about how calibrated our results are(predicted probablity vs actual result)?
+-  Are the Top K( where K is # of predictions ranked by probablity) predictions most important of we care of the entire gamut of predictions
+- How unstable is your problem set ( Can we expect a distribution change of event rate in the recent future?)
+
+
+For any classification problem that we are trying to solve one or more of the above aspects might be considered, then based on which we will pick metrics which help us address that aspect of the problem. Let's learn more by picking the same problem we were addressing in the last section  
 
 ## Final pointers
 
