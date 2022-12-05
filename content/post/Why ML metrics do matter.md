@@ -120,6 +120,10 @@ Before even looking at the numbers lets think deeper about the problem. In this 
 - Lets say the Top5 patients with the highest probablity of cancer will receive the most strongest treatment and we want to extremely accurate here as strong treatment means higher chances of side-effects and you don't want a non-cancerous patient to suffer that
 - I will say our problem is relatively stable and any drift or change in distribution does not happen fast unless you change the demographics (Just guessing)
 
+Now based on the above we will be defining the metrics we will use to test our cancer classifier.<br>
+
+<b>To test for overall model discrimination</b>
+Considering we are dealing with an unbalanced class problem we will use a precesion/recall chat instead of AUC chart to learn how our model is, now why is a PR curve a better idea when we have an unbalanced class problem? 
 
 
 
