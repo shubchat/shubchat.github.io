@@ -98,7 +98,7 @@ We now do realize that when attempting to solve a classification problem we have
 - How unstable is your problem set ( Can we expect a distribution change of event rate in the recent future?)
 
 
-For any classification problem that we are trying to solve one or more of the above aspects might be considered, then based on which we will pick metrics which help us address that aspect of the problem. Let's learn more by picking the same problem we were addressing in the last section......
+For any classification problem that we are trying to solve one or more of the above aspects might be considered, then based on which we will pick metrics which help us address that aspect of the problem. Let's learn more by picking the same problem we were addressing in the last section
 TO BE CONTINUED  
 
 ## Final pointers
