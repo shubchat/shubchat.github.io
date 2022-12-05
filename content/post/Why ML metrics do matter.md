@@ -69,7 +69,7 @@ Hopefully above example helped bring in the context around how a single metric m
 
 Alright,lets now take a classification problem and learn about some of the metrics that might be useful and what do each of them inform about the quality of our prediction.
 
-Problem: A classifier predicts out of a sample of 1000 patients ,how many might develop a disease in the next 12 months .Below is how it performed.
+Problem: A classifier predicts out of a sample of 1000 patients ,how many might develop cancer in the next 12 months .Below is how it performed.
 
 Sample  | predicted to have disease|Actually had disease|Accuracy|TP|FP|Precision|Recall|
 ------- | ------------------------ |------------------- |--------|---|---|---------|------|
@@ -94,11 +94,36 @@ We now do realize that when attempting to solve a classification problem we have
 - The base event rate of the problem(Are we dealing with an imbalanced class problem? )
 - Cost of a false positive vs a false negative(What will be more impactful in the grand scheme of things?)
 - Do we care only about the rank-order(if the model is able to identify one class from another ) or do we also care about how calibrated our results are(predicted probablity vs actual result)?
--  Are the Top K( where K is # of predictions ranked by probablity) predictions most important of we care of the entire gamut of predictions
+-  A derivative of previous point,are the Top K( where K is # of predictions ranked by probablity) predictions most important of we care of the entire gamut of predictions
 - How unstable is your problem set ( Can we expect a distribution change of event rate in the recent future?)
 
 
-For any classification problem that we are trying to solve one or more of the above aspects might be considered, then based on which we will pick metrics which help us address that aspect of the problem. Let's learn more by picking the same problem we were addressing in the last section
+For any classification problem that we are trying to solve one or more of the above aspects might be considered, then based on which we will pick metrics which help us address that aspect of the problem. Let's learn more by picking the same problem we were addressing in the last section<br>
+>Problem: A classifier predicts out of a sample of 1000 patients ,how many might develop cancer in the next 12 months <br>
+
+Sample  | predicted to have disease|Actually had disease|Accuracy|TP|FP|Precision|Recall|
+------- | ------------------------ |------------------- |--------|---|---|---------|------|
+1000    |20                        | 5                 |85%     | 5  | 15   | 25%   | 100%
+
+
+Before even looking at the numbers lets think deeper about the problem. In this problem : <br>
+
+- The base event rate is (0.5%) which means we are dealing with an unbalanced class problem
+- We are predicting if someone might have cancer, this prediction might be used to take preventive measures which might save someone lives. What are the costs of wrong predictions
+
+    - A False negative means we might not be able to save a life from cancer
+    - A False positive means we might make a person who is not a prospective cancer risk take preventative treatment.Impact: Side-effects, wasted resources 
+
+    Considering both of the above options I would rather err on the side of a False negative than a False positive(but not by much)<br>
+    
+- We need our classifier to have good calibration that is for all cases where lets say prob of cancer is 70% and above the real event rate should be ball park be around the same
+- Lets say the Top5 patients with the highest probablity of cancer will receive the most strongest treatment and we want to extremely accurate here as strong treatment means higher chances of side-effects and you don't want a non-cancerous patient to suffer that
+- I will say our problem is relatively stable and any drift or change in distribution does not happen fast unless you change the demographics (Just guessing)
+
+
+
+
+
 
 ## Final pointers
 
