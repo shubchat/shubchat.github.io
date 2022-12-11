@@ -52,12 +52,11 @@ We in this text will focus on the third point mentioned above ,now although we w
 
 Accuracy : Out of all data points that we have in the existing evaluation set in what percentage of cases our model classification was correct .For example if out of 100 data points if our model was able to correctly classify 90 data points the accuracy is 90% 
 
-
+**Table:1**
 Problem       | Base rate    | Accuracy of a model
 ------------- | -------------| -------
 Identifying loan defaults  | 20% | 91%
 Identifying abnormalities in FMRI scans  | 0.5% | 91%
-
 
 - Case1:(Base rate 20%) In this case a random model that predicts a no-event in each case should have an accuracy of 80% and Hence our model with an accuracy of 91% should enhance our classification quality over coin toss
 - Case2:(Base rate 0.5%) With such a low base rate a random model can have an accuracy ~ 99.5% .Hence,although accuracy of our model is 91% which seems quite high ,the actual pragmatic usability of the model is quite bad . 
@@ -71,10 +70,10 @@ Alright,lets now take a classification problem and learn about some of the metri
 
 Problem: A classifier predicts out of a sample of 1000 patients ,how many might develop cancer in the next 12 months .Below is how it performed.
 
+**Table:2**
 Sample  | predicted to have disease|Actually had disease|Accuracy|TP|FP|Precision|Recall|
 ------- | ------------------------ |------------------- |--------|---|---|---------|------|
 1000    |20                        | 5                 |85%     | 5  | 15   | 25%   | 100%
-
 
 
 - Accuracy : Out of all data points that we have in the existing evaluation set in what percentage of cases our model classification was correct
@@ -122,10 +121,9 @@ Before even looking at the numbers lets think deeper about the problem. In this 
 
 Now based on the above we will be defining the metrics we will use to test our cancer classifier.<br>
 
-<b>To test for overall model discrimination</b>
-Considering we are dealing with an unbalanced class problem we will use a precesion/recall chat instead of AUC chart to learn how our model is, now why is a PR curve a better idea when we have an unbalanced class problem? 
+**To test for overall model discrimination** considering we are dealing with an unbalanced class problem we will use a precesion/recall chat instead of AUC chart to learn how our model is, now why is a PR curve a better idea when we have an unbalanced class problem? Lets assume we developed a Logistic regression model for the problem we are trying to solve and below is how its performing:<br> Going back to the problem and the table2<br>
 
-
+![Metrics](/images/AUC_vs_PR/img/AUC_PR.png 'AUC vs PR curve')
 
 
 
