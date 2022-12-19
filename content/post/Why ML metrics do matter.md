@@ -121,13 +121,21 @@ Before even looking at the numbers lets think deeper about the problem. In this 
 
 Now based on the above we will be defining the metrics we will use to test our cancer classifier.<br>
 
-**To test for overall model discrimination** considering we are dealing with an unbalanced class problem we will use a precesion/recall chat instead of AUC chart to learn how our model is, now why is a PR curve a better idea when we have an unbalanced class problem? Lets assume we developed a Logistic regression model for the problem we are trying to solve and below is how its performing:<br> Going back to the problem and the table2<br>
+**To test for overall model discrimination** considering we are dealing with an unbalanced class problem we will use a precesion/recall chat instead of AUC chart to learn how our model is, now why is a PR curve a better idea when we have an unbalanced class problem? Lets assume we developed a Logistic regression model for the problem we are trying to solve and below is how its performing:<br> Going back to the problem , consider below two charts. Which one do you reckon is providing more information to make a good decision.<br>
 
 ![Metrics](/images/AUC_vs_PR/img/AUC_PR.png 'AUC vs PR curve')
 
+A key point in here is that when we have unbalanced classes even a small false positive rate can give you a huge volume of false positives. Therefore you would be really interested in knowing the precesion of a model while deciding upon a trade-off.<br>
 
+Now another key factor to keep in mind is how is this model being used for decisions we might have a threshold of 0.99 prob beyond which we might want to classify a case as a cancer now we have to ensure that 0.99 probablity even when studied on actuals shows the same kind of distribution<br>
+
+
+**Example of calibration curve from scikitlearn**
+![Metrics](/images/AUC_vs_PR/img/calibration.png 'Example of calibration curve from scikitlearn')
 
 ## Final pointers
+This was just a quick take on how based on how we might frame a problem we might need different metrics to create a differentiated impact on the real world. Although the blog post has been around problems in Machine learning the take is applicable for any problem across the disciplines. Whether we might be attempting to solve problems in social science, philosophy or geology, how we frame a problem is what is the most important for us to make sure we are not optimizing towards a wrong outcome.
 
+![wrong_path](/images/AUC_vs_PR/img/wrong_path.jpeg 'wrong path ')
 
 
