@@ -1,3 +1,11 @@
++++
+title = "Top 5 books 2023 "
+description = "Top 5 books 2023"
+date = 2023-10-26T02:13:50Z
+author = "Shubh Chatterjee"
++++
+
+
 # Top 5 books 2023
 
 Alrighty! first of all huge apologies first to myself and then to all of my friends for breaking a promise, I did intend to do this list every year but somehow it fell through the crack with tons of things happening in life, but that said I now again find the motivation of sharing one of my most favorite things in life, books. This has been an year in which I actually did not read much(Yeah I know, I also regret it) but I do intend to change it next year in a big way. So without further adieu, my top 5 books of 2023.<br> 
